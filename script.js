@@ -4,9 +4,10 @@ let board = [
   ["", "", ""],
 ];
 let currentPlayer = "X";
+let reviewingGame = false;
 
 function makeMove(row, col) {
-  if (board[row][col] === "") {
+  if (!reviewingGame && board[row][col] === "") {
     board[row][col] = currentPlayer;
     document.getElementById("tic-tac-toe-board").children[row].children[
       col
@@ -67,15 +68,17 @@ function checkWin() {
       board[a[0]][a[1]] === board[b[0]][b[1]] &&
       board[a[0]][a[1]] === board[c[0]][c[1]]
     ) {
-      alert(`Player ${board[a[0]][a[1]]} wins!`);
-      resetGame();
+      document.getElementById("winnerText").innerText = `Player ${
+        board[a[0]][a[1]]
+      } wins!`;
+      document.getElementById("myModal").style.display = "block";
       return;
     }
   }
 
   if (isBoardFull()) {
-    alert("It's a draw!");
-    resetGame();
+    document.getElementById("winnerText").innerText = "It's a draw!";
+    document.getElementById("myModal").style.display = "block";
   }
 }
 
@@ -89,6 +92,7 @@ function isBoardFull() {
 }
 
 function resetGame() {
+  reviewingGame = false;
   board = [
     ["", "", ""],
     ["", "", ""],
@@ -99,4 +103,15 @@ function resetGame() {
   for (let i = 0; i < cells.length; i++) {
     cells[i].innerText = "";
   }
+}
+
+function restartGame() {
+  reviewingGame = false;
+  document.getElementById("myModal").style.display = "none";
+  resetGame();
+}
+
+function reviewGame() {
+  reviewingGame = true;
+  document.getElementById("myModal").style.display = "none";
 }

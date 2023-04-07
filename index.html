@@ -27,6 +27,17 @@
             <div class="cell" onclick="makeMove(2, 2)"></div>
         </div>
     </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <h2 id="winnerText"></h2>
+            <div class="modal-buttons">
+                <button onclick="restartGame()">Restart Game</button>
+                <button onclick="reviewGame()">Review Previous Game</button>
+            </div>
+        </div>
+    </div>
+
     <button onclick="resetGame()">Reset</button>
     <script src="script.js"></script>
 </body>
