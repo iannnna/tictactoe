@@ -17,6 +17,13 @@ body {
     background-color: #BBDED6;
 }
 
+#body-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
 #intro {
     display: flex;
     align-items: center;
@@ -159,4 +166,17 @@ button {
 
 .reviewMoveButtons {
     display: none;
+}
+
+#option {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 30px;
+}
+
+#option img {
+    max-width: 50px;
+    max-height: 50px;
+    cursor: pointer;
 }

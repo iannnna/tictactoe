@@ -10,59 +10,67 @@
 </head>
 
 <body>
-    <div id="intro">
-        <div class="game-title">
-            TIC TAC TOE
-        </div>
-        <div class="start-buttons">
-            <button id="play">Play Now</button>
-        </div>
-    </div>
-
-    <div id="game" hidden>
-        <div id="game-container">
-            <div id="title" class="game-title">
+    <div id="body-container">
+        <div id="intro">
+            <div class="game-title">
                 TIC TAC TOE
             </div>
-
-            <div id="tic-tac-toe-board">
-                <div class="row">
-                    <div class="cell" onclick="makeMove(0, 0)"></div>
-                    <div class="cell" onclick="makeMove(0, 1)"></div>
-                    <div class="cell" onclick="makeMove(0, 2)"></div>
-                </div>
-                <div class="row">
-                    <div class="cell" onclick="makeMove(1, 0)"></div>
-                    <div class="cell" onclick="makeMove(1, 1)"></div>
-                    <div class="cell" onclick="makeMove(1, 2)"></div>
-                </div>
-                <div class="row">
-                    <div class="cell" onclick="makeMove(2, 0)"></div>
-                    <div class="cell" onclick="makeMove(2, 1)"></div>
-                    <div class="cell" onclick="makeMove(2, 2)"></div>
-                </div>
-            </div>
-
-            <div id="buttons">
-                <button id="resetButton" onclick="resetGame()">Reset</button>
-                <div id="reviewButtons" class="reviewMoveButtons">
-                    <button onclick="previousMove()" disabled id="previousMoveButton">Previous</button>
-                    <button onclick="nextMove()" disabled id="nextMoveButton">Next</button>
-                </div>
+            <div class="start-buttons">
+                <button id="play">Play Now</button>
             </div>
         </div>
 
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <h2 id="winnerText"></h2>
-                <div class="modal-buttons">
-                    <button onclick="restartGame()">Restart Game</button>
-                    <button onclick="reviewGame()">Review Game</button>
+        <div id="game" hidden>
+            <div id="game-container">
+                <div id="title" class="game-title">
+                    TIC TAC TOE
+                </div>
+
+                <div id="tic-tac-toe-board">
+                    <div class="row">
+                        <div class="cell" onclick="makeMove(0, 0)"></div>
+                        <div class="cell" onclick="makeMove(0, 1)"></div>
+                        <div class="cell" onclick="makeMove(0, 2)"></div>
+                    </div>
+                    <div class="row">
+                        <div class="cell" onclick="makeMove(1, 0)"></div>
+                        <div class="cell" onclick="makeMove(1, 1)"></div>
+                        <div class="cell" onclick="makeMove(1, 2)"></div>
+                    </div>
+                    <div class="row">
+                        <div class="cell" onclick="makeMove(2, 0)"></div>
+                        <div class="cell" onclick="makeMove(2, 1)"></div>
+                        <div class="cell" onclick="makeMove(2, 2)"></div>
+                    </div>
+                </div>
+
+                <div id="buttons">
+                    <button id="resetButton" onclick="resetGame()">Reset</button>
+                    <div id="reviewButtons" class="reviewMoveButtons">
+                        <button onclick="previousMove()" disabled id="previousMoveButton">Previous</button>
+                        <button onclick="nextMove()" disabled id="nextMoveButton">Next</button>
+                    </div>
                 </div>
             </div>
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <h2 id="winnerText"></h2>
+                    <div class="modal-buttons">
+                        <button onclick="restartGame()">Restart Game</button>
+                        <button onclick="reviewGame()">Review Game</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="option">
+            <img src="./media/music-off.png" id="icon" alt="sounds off">
         </div>
     </div>
 
+    <audio id="backgroundAudio">
+        <source src="./media/background.mp3" type="audio/mp3">
+    </audio>
     <script src="script.js"></script>
 </body>
 

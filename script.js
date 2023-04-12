@@ -1,3 +1,16 @@
+const song = document.getElementById("backgroundAudio");
+const icon = document.getElementById("icon");
+
+icon.onclick = function () {
+  if (backgroundAudio.paused) {
+    backgroundAudio.play();
+    icon.src = "./media/music-on.png";
+  } else {
+    backgroundAudio.pause();
+    icon.src = "./media/music-off.png";
+  }
+};
+
 const intro = document.getElementById("intro");
 const game = document.getElementById("game");
 const playButton = document.getElementById("play");
