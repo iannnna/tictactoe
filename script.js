@@ -3,18 +3,12 @@ let board = [
   ["", "", ""],
   ["", "", ""],
 ];
+
 let currentPlayer = "X";
 let reviewingGame = false;
-let moveHistory = [];
 
 function makeMove(row, col) {
   if (!reviewingGame && board[row][col] === "") {
-    let move = {
-      player: currentPlayer,
-      row: row,
-      col: col,
-    };
-    moveHistory.push(move);
     board[row][col] = currentPlayer;
     document.getElementById("tic-tac-toe-board").children[row].children[
       col
@@ -100,7 +94,6 @@ function isBoardFull() {
 
 function resetGame() {
   reviewingGame = false;
-  moveHistory = [];
   board = [
     ["", "", ""],
     ["", "", ""],
@@ -111,7 +104,6 @@ function resetGame() {
   for (let i = 0; i < cells.length; i++) {
     cells[i].innerText = "";
   }
-  document.getElementById("previousMoveButton").disabled = true;
 }
 
 function restartGame() {
@@ -123,20 +115,4 @@ function restartGame() {
 function reviewGame() {
   reviewingGame = true;
   document.getElementById("myModal").style.display = "none";
-  document.getElementById("previousMoveButton").disabled = false;
-}
-
-function previousMove() {
-  if (moveHistory.length > 0) {
-    let move = moveHistory.pop();
-    let { player, row, col } = move;
-    board[row][col] = "";
-    document.getElementById("tic-tac-toe-board").children[row].children[
-      col
-    ].innerText = "";
-    currentPlayer = player;
-    if (moveHistory.length === 0) {
-      document.getElementById("previousMoveButton").disabled = true;
-    }
-  }
 }
