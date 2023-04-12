@@ -28,6 +28,8 @@
         </div>
     </div>
 
+    <button onclick="resetGame()">Reset</button>
+
     <div id="myModal" class="modal">
         <div class="modal-content">
             <h2 id="winnerText"></h2>
@@ -38,9 +40,11 @@
         </div>
     </div>
 
-    <button onclick="resetGame()">Reset</button>
-    <button onclick="previousMove()" disabled id="previousMoveButton">Previous</button>
-    <button onclick="nextMove()" disabled id="nextMoveButton">Next</button>
+    <div id="reviewButtons" class="reviewMoveButtons">
+        <button onclick="previousMove()" disabled id="previousMoveButton">Previous</button>
+        <button onclick="nextMove()" disabled id="nextMoveButton">Next</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 

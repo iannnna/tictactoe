@@ -7,8 +7,12 @@ let board = [
 let currentPlayer = "X";
 let reviewingGame = false;
 let gameMoves = [];
+let undoneMoves = [];
 
 function makeMove(row, col) {
+  if (reviewingGame) {
+    return;
+  }
   if (!reviewingGame && board[row][col] === "") {
     board[row][col] = currentPlayer;
     document.getElementById("tic-tac-toe-board").children[row].children[
@@ -106,6 +110,7 @@ function resetGame() {
   for (let i = 0; i < cells.length; i++) {
     cells[i].innerText = "";
   }
+  document.getElementById("reviewButtons").style.display = "none";
 }
 
 function restartGame() {
@@ -117,4 +122,42 @@ function restartGame() {
 function reviewGame() {
   reviewingGame = true;
   document.getElementById("myModal").style.display = "none";
+  document.getElementById("reviewButtons").style.display = "block";
+  document.getElementById("previousMoveButton").disabled = false;
+}
+
+function previousMove() {
+  if (gameMoves.length > 0) {
+    let lastMove = gameMoves.pop();
+    let row = lastMove.row;
+    let col = lastMove.col;
+    currentPlayer = lastMove.player === "X" ? "O" : "X";
+    board[row][col] = "";
+    document.getElementById("tic-tac-toe-board").children[row].children[
+      col
+    ].innerText = "";
+    undoneMoves.push(lastMove);
+    document.getElementById("nextMoveButton").disabled = false;
+  }
+  if (gameMoves.length <= 0) {
+    document.getElementById("previousMoveButton").disabled = true;
+  }
+}
+
+function nextMove() {
+  if (undoneMoves.length > 0) {
+    let nextMove = undoneMoves.pop();
+    let row = nextMove.row;
+    let col = nextMove.col;
+    currentPlayer = nextMove.player;
+    board[row][col] = currentPlayer;
+    document.getElementById("tic-tac-toe-board").children[row].children[
+      col
+    ].innerText = currentPlayer;
+    gameMoves.push(nextMove);
+    document.getElementById("previousMoveButton").disabled = false;
+  }
+  if (undoneMoves.length <= 0) {
+    document.getElementById("nextMoveButton").disabled = true;
+  }
 }
