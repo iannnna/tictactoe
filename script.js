@@ -18,7 +18,6 @@ function makeMove(row, col) {
     gameMoves.push({ row, col, player: currentPlayer });
     currentPlayer = currentPlayer === "X" ? "O" : "X";
   }
-  console.log(gameMoves);
 }
 
 function checkWin() {
