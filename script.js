@@ -6,6 +6,7 @@ let board = [
 
 let currentPlayer = "X";
 let reviewingGame = false;
+let gameMoves = [];
 
 function makeMove(row, col) {
   if (!reviewingGame && board[row][col] === "") {
@@ -14,8 +15,10 @@ function makeMove(row, col) {
       col
     ].innerText = currentPlayer;
     checkWin();
+    gameMoves.push({ row, col, player: currentPlayer });
     currentPlayer = currentPlayer === "X" ? "O" : "X";
   }
+  console.log(gameMoves);
 }
 
 function checkWin() {
