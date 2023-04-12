@@ -17,6 +17,20 @@ body {
     background-color: #BBDED6;
 }
 
+#intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.start-buttons button {
+    background-color: #F5F3C1;
+    cursor: pointer;
+}
+
 #game-container {
     display: flex;
     justify-content: center;
@@ -26,7 +40,7 @@ body {
     gap: 5vh
 }
 
-#title {
+.game-title {
     font-size: 5rem;
     font-family: 'title-font', sans-serif;
     color: #0E8388;
@@ -55,6 +69,8 @@ body {
     margin: 5px;
     border-radius: 20px;
     background-color: #FFB6B9;
+    font-family: 'title-font';
+    color: #0E8388;
 }
 
 #buttons {
@@ -89,7 +105,6 @@ body {
 button {
     width: 5em;
     height: 1.5em;
-    background-color: #F5F3C1;
     border: none;
     border-radius: 5px;
     font-size: 20px;
@@ -139,6 +154,7 @@ button {
     margin-right: 10px;
     width: 8em;
     height: 1.5em;
+    background-color: #F5F3C1;
 }
 
 .reviewMoveButtons {

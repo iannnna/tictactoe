@@ -1,3 +1,13 @@
+const intro = document.getElementById("intro");
+const game = document.getElementById("game");
+const playButton = document.getElementById("play");
+
+playButton.addEventListener("click", startGame);
+function startGame() {
+  intro.style.display = "none";
+  game.removeAttribute("hidden");
+}
+
 let board = [
   ["", "", ""],
   ["", "", ""],
@@ -75,13 +85,17 @@ function checkWin() {
       document.getElementById("winnerText").innerText = `Player ${
         board[a[0]][a[1]]
       } wins!`;
-      document.getElementById("myModal").style.display = "block";
+      document.getElementById("myModal").style.display = "flex";
+      document.getElementById("myModal").style.justifyContent = "center";
+      document.getElementById("myModal").style.alignItems = "center";
       return;
     }
   }
   if (isBoardFull()) {
     document.getElementById("winnerText").innerText = "It's a draw!";
-    document.getElementById("myModal").style.display = "block";
+    document.getElementById("myModal").style.display = "flex";
+    document.getElementById("myModal").style.justifyContent = "center";
+    document.getElementById("myModal").style.alignItems = "center";
   }
 }
 function isBoardFull() {
