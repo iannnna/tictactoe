@@ -70,13 +70,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10vw;
-    height: 4vh;
+    width: 5em;
+    height: 1.5em;
     background-color: #F5F3C1;
     border: none;
     border-radius: 5px;
     font-size: 20px;
-    color: grey;
+    color: 393E46;
     padding-top: 5px;
     font-family: 'button', sans-serif;
 }
@@ -87,13 +87,13 @@ body {
 }
 
 button {
-    width: 15vw;
-    height: 4vh;
+    width: 5em;
+    height: 1.5em;
     background-color: #F5F3C1;
     border: none;
     border-radius: 5px;
     font-size: 20px;
-    color: grey;
+    color: #393E46;
     padding-top: 5px;
     font-family: 'button', sans-serif;
 }
@@ -110,21 +110,35 @@ button {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .modal-content {
-    background-color: #f9f9f9;
-    margin: 10% auto;
+    background-color: #C1DEAE;
     padding: 20px;
-    border: 1px solid #888;
-    width: 300px;
+    border: none;
+    border-radius: 20px;
+    width: 400px;
     text-align: center;
+    font-family: button;
+    color: #0E8388;
 }
 
 .modal-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
+    gap: 1vh;
 }
 
-button.modal-buttons {
+.modal-buttons button {
     margin-right: 10px;
+    width: 8em;
+    height: 1.5em;
 }
 
 .reviewMoveButtons {

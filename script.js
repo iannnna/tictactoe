@@ -78,14 +78,14 @@ function checkWin() {
       document.getElementById("winnerText").innerText = `Player ${
         board[a[0]][a[1]]
       } wins!`;
-      document.getElementById("myModal").style.display = "block";
+      document.getElementById("myModal").classList.add("show");
       return;
     }
   }
 
   if (isBoardFull()) {
     document.getElementById("winnerText").innerText = "It's a draw!";
-    document.getElementById("myModal").style.display = "block";
+    document.getElementById("myModal").classList.add("show");
   }
 }
 
