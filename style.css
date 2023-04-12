@@ -52,6 +52,10 @@ button {
     margin-top: 20px;
 }
 
-.modal-buttons button {
+button.modal-buttons {
     margin-right: 10px;
+}
+
+.reviewMoveButtons {
+    display: none;
 }
