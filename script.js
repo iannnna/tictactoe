@@ -161,3 +161,15 @@ function nextMove() {
     document.getElementById("nextMoveButton").disabled = true;
   }
 }
+
+window.onload = function () {
+  const resetFlag = localStorage.getItem("resetFlag");
+  if (resetFlag === "true") {
+    resetGame();
+    localStorage.setItem("resetFlag", "false");
+  }
+};
+
+window.onbeforeunload = function () {
+  localStorage.setItem("resetFlag", "true");
+};

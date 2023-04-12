@@ -10,25 +10,39 @@
 </head>
 
 <body>
-    <div id="tic-tac-toe-board">
-        <div class="row">
-            <div class="cell" onclick="makeMove(0, 0)"></div>
-            <div class="cell" onclick="makeMove(0, 1)"></div>
-            <div class="cell" onclick="makeMove(0, 2)"></div>
-        </div>
-        <div class="row">
-            <div class="cell" onclick="makeMove(1, 0)"></div>
-            <div class="cell" onclick="makeMove(1, 1)"></div>
-            <div class="cell" onclick="makeMove(1, 2)"></div>
-        </div>
-        <div class="row">
-            <div class="cell" onclick="makeMove(2, 0)"></div>
-            <div class="cell" onclick="makeMove(2, 1)"></div>
-            <div class="cell" onclick="makeMove(2, 2)"></div>
-        </div>
-    </div>
+    <div id="game-container">
 
-    <button onclick="resetGame()">Reset</button>
+        <div id="title">
+            TIC TAC TOE
+        </div>
+
+        <div id="tic-tac-toe-board">
+            <div class="row">
+                <div class="cell" onclick="makeMove(0, 0)"></div>
+                <div class="cell" onclick="makeMove(0, 1)"></div>
+                <div class="cell" onclick="makeMove(0, 2)"></div>
+            </div>
+            <div class="row">
+                <div class="cell" onclick="makeMove(1, 0)"></div>
+                <div class="cell" onclick="makeMove(1, 1)"></div>
+                <div class="cell" onclick="makeMove(1, 2)"></div>
+            </div>
+            <div class="row">
+                <div class="cell" onclick="makeMove(2, 0)"></div>
+                <div class="cell" onclick="makeMove(2, 1)"></div>
+                <div class="cell" onclick="makeMove(2, 2)"></div>
+            </div>
+        </div>
+
+        <div id="buttons">
+            <button id="resetButton" onclick="resetGame()">Reset</button>
+            <div id="reviewButtons" class="reviewMoveButtons">
+                <button onclick="previousMove()" disabled id="previousMoveButton">Previous</button>
+                <button onclick="nextMove()" disabled id="nextMoveButton">Next</button>
+            </div>
+        </div>
+
+    </div>
 
     <div id="myModal" class="modal">
         <div class="modal-content">
@@ -38,11 +52,6 @@
                 <button onclick="reviewGame()">Review Previous Game</button>
             </div>
         </div>
-    </div>
-
-    <div id="reviewButtons" class="reviewMoveButtons">
-        <button onclick="previousMove()" disabled id="previousMoveButton">Previous</button>
-        <button onclick="nextMove()" disabled id="nextMoveButton">Next</button>
     </div>
 
     <script src="script.js"></script>
