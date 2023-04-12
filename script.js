@@ -3,7 +3,6 @@ let board = [
   ["", "", ""],
   ["", "", ""],
 ];
-
 let currentPlayer = "X";
 let reviewingGame = false;
 let gameMoves = [];
@@ -23,7 +22,6 @@ function makeMove(row, col) {
     currentPlayer = currentPlayer === "X" ? "O" : "X";
   }
 }
-
 function checkWin() {
   const winningCombinations = [
     [
@@ -67,7 +65,6 @@ function checkWin() {
       [2, 0],
     ],
   ];
-
   for (let combination of winningCombinations) {
     let [a, b, c] = combination;
     if (
@@ -78,17 +75,15 @@ function checkWin() {
       document.getElementById("winnerText").innerText = `Player ${
         board[a[0]][a[1]]
       } wins!`;
-      document.getElementById("myModal").classList.add("show");
+      document.getElementById("myModal").style.display = "block";
       return;
     }
   }
-
   if (isBoardFull()) {
     document.getElementById("winnerText").innerText = "It's a draw!";
-    document.getElementById("myModal").classList.add("show");
+    document.getElementById("myModal").style.display = "block";
   }
 }
-
 function isBoardFull() {
   for (let row of board) {
     if (row.includes("")) {
@@ -97,7 +92,6 @@ function isBoardFull() {
   }
   return true;
 }
-
 function resetGame() {
   reviewingGame = false;
   board = [
@@ -111,6 +105,8 @@ function resetGame() {
     cells[i].innerText = "";
   }
   document.getElementById("reviewButtons").style.display = "none";
+  gameMoves = [];
+  undoneMoves = [];
 }
 
 function restartGame() {
@@ -118,7 +114,6 @@ function restartGame() {
   document.getElementById("myModal").style.display = "none";
   resetGame();
 }
-
 function reviewGame() {
   reviewingGame = true;
   document.getElementById("myModal").style.display = "none";
@@ -169,7 +164,6 @@ window.onload = function () {
     localStorage.setItem("resetFlag", "false");
   }
 };
-
 window.onbeforeunload = function () {
   localStorage.setItem("resetFlag", "true");
 };
