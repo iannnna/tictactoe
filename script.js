@@ -130,6 +130,7 @@ function checkWin() {
     document.getElementById("myModal").style.display = "flex";
     document.getElementById("myModal").style.justifyContent = "center";
     document.getElementById("myModal").style.alignItems = "center";
+    document.getElementById("playerTurn").style.display = "none";
   }
 }
 function isBoardFull() {
