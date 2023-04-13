@@ -5,26 +5,36 @@ const winAudio = document.getElementById("winAudio");
 const gameOver = document.getElementById("gameOver");
 const clickAudio = document.getElementById("clickAudio");
 
-icon.onclick = function () {
-  if (backgroundAudio.paused) {
-    backgroundAudio.play();
-    icon.src = "./media/music-on.png";
-  } else {
-    backgroundAudio.pause();
-    icon.src = "./media/music-off.png";
-  }
-  clickAudio.play();
-};
+if (icon) {
+  icon.onclick = function () {
+    if (backgroundAudio.paused) {
+      backgroundAudio.play();
+      icon.src = "./media/music-on.png";
+    } else {
+      backgroundAudio.pause();
+      icon.src = "./media/music-off.png";
+    }
+    clickAudio.play();
+  };
+}
 
 const intro = document.getElementById("intro");
 const game = document.getElementById("game");
 const playButton = document.getElementById("play");
 
 playButton.addEventListener("click", startGame);
+
 function startGame() {
   intro.style.display = "none";
   game.removeAttribute("hidden");
-  clickAudio.play();
+  document.getElementById(
+    "playerTurn"
+  ).innerText = `Player ${currentPlayer}'s Turn`;
+
+  document.addEventListener("click", function () {
+    clickAudio.play();
+  });
+  moveAudio.play();
 }
 
 let board = [
@@ -49,9 +59,13 @@ function makeMove(row, col) {
     checkWin();
     gameMoves.push({ row, col, player: currentPlayer });
     currentPlayer = currentPlayer === "X" ? "O" : "X";
+    document.getElementById(
+      "playerTurn"
+    ).innerText = `Player ${currentPlayer}'s Turn`;
     moveAudio.play();
   }
 }
+
 function checkWin() {
   const winningCombinations = [
     [
@@ -109,6 +123,7 @@ function checkWin() {
       document.getElementById("myModal").style.display = "flex";
       document.getElementById("myModal").style.justifyContent = "center";
       document.getElementById("myModal").style.alignItems = "center";
+      document.getElementById("playerTurn").style.display = "none";
       return;
     }
   }
@@ -143,7 +158,13 @@ function resetGame() {
   document.getElementById("reviewButtons").style.display = "none";
   gameMoves = [];
   undoneMoves = [];
-  clickAudio.play();
+  document.getElementById(
+    "playerTurn"
+  ).innerText = `Player ${currentPlayer}'s turn`;
+  document.getElementById("playerTurn").style.display = "block";
+  document.addEventListener("click", function () {
+    clickAudio.play();
+  });
 }
 
 function restartGame() {

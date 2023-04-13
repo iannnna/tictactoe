@@ -63,7 +63,17 @@ body {
 .game-title {
     font-size: 5rem;
     font-family: 'title-font', sans-serif;
-    color: var(--font)
+    color: var(--font);
+    margin: 20px;
+}
+
+#playerTurn {
+    font-size: 20px;
+    text-align: center;
+    font-family: 'button', sans-serif;
+    text-decoration: underline;
+    margin: 0;
+
 }
 
 #tic-tac-toe-board {
