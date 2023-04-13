@@ -1,18 +1,18 @@
 const song = document.getElementById("backgroundAudio");
-const icon = document.getElementById("icon");
+const music = document.getElementById("music");
 const moveAudio = document.getElementById("moveAudio");
 const winAudio = document.getElementById("winAudio");
 const gameOver = document.getElementById("gameOver");
 const clickAudio = document.getElementById("clickAudio");
 
-if (icon) {
-  icon.onclick = function () {
+if (music) {
+  music.onclick = function () {
     if (backgroundAudio.paused) {
       backgroundAudio.play();
-      icon.src = "./media/music-on.png";
+      music.src = "./media/music-on.png";
     } else {
       backgroundAudio.pause();
-      icon.src = "./media/music-off.png";
+      music.src = "./media/music-off.png";
     }
     clickAudio.play();
   };
@@ -133,6 +133,7 @@ function checkWin() {
     document.getElementById("playerTurn").style.display = "none";
   }
 }
+
 function isBoardFull() {
   for (let row of board) {
     if (row.includes("")) {
@@ -141,6 +142,7 @@ function isBoardFull() {
   }
   return true;
 }
+
 function resetGame() {
   reviewingGame = false;
   board = [
@@ -168,6 +170,7 @@ function restartGame() {
   document.getElementById("myModal").style.display = "none";
   resetGame();
 }
+
 function reviewGame() {
   reviewingGame = true;
   document.getElementById("myModal").style.display = "none";
