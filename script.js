@@ -160,7 +160,7 @@ function resetGame() {
   undoneMoves = [];
   document.getElementById(
     "playerTurn"
-  ).innerText = `Player ${currentPlayer}'s turn`;
+  ).innerText = `Player ${currentPlayer}'s Turn`;
   document.getElementById("playerTurn").style.display = "block";
   document.getElementById("resetButton").addEventListener("click", function () {
     clickAudio.play();
