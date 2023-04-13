@@ -30,10 +30,7 @@ function startGame() {
   document.getElementById(
     "playerTurn"
   ).innerText = `Player ${currentPlayer}'s Turn`;
-
-  document.addEventListener("click", function () {
-    clickAudio.play();
-  });
+  clickAudio.play();
   moveAudio.play();
 }
 
@@ -162,9 +159,7 @@ function resetGame() {
     "playerTurn"
   ).innerText = `Player ${currentPlayer}'s turn`;
   document.getElementById("playerTurn").style.display = "block";
-  document.addEventListener("click", function () {
-    clickAudio.play();
-  });
+  clickAudio.play();
 }
 
 function restartGame() {
