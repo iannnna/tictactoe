@@ -162,7 +162,9 @@ function resetGame() {
     "playerTurn"
   ).innerText = `Player ${currentPlayer}'s turn`;
   document.getElementById("playerTurn").style.display = "block";
-  clickAudio.play();
+  document.getElementById("resetButton").addEventListener("click", function () {
+    clickAudio.play();
+  });
 }
 
 function restartGame() {
