@@ -1,5 +1,9 @@
 const song = document.getElementById("backgroundAudio");
 const icon = document.getElementById("icon");
+const moveAudio = document.getElementById("moveAudio");
+const winAudio = document.getElementById("winAudio");
+const gameOver = document.getElementById("gameOver");
+const clickAudio = document.getElementById("clickAudio");
 
 icon.onclick = function () {
   if (backgroundAudio.paused) {
@@ -9,6 +13,7 @@ icon.onclick = function () {
     backgroundAudio.pause();
     icon.src = "./media/music-off.png";
   }
+  clickAudio.play();
 };
 
 const intro = document.getElementById("intro");
@@ -19,6 +24,7 @@ playButton.addEventListener("click", startGame);
 function startGame() {
   intro.style.display = "none";
   game.removeAttribute("hidden");
+  clickAudio.play();
 }
 
 let board = [
@@ -43,6 +49,7 @@ function makeMove(row, col) {
     checkWin();
     gameMoves.push({ row, col, player: currentPlayer });
     currentPlayer = currentPlayer === "X" ? "O" : "X";
+    moveAudio.play();
   }
 }
 function checkWin() {
@@ -98,6 +105,7 @@ function checkWin() {
       document.getElementById("winnerText").innerText = `Player ${
         board[a[0]][a[1]]
       } wins!`;
+      winAudio.play();
       document.getElementById("myModal").style.display = "flex";
       document.getElementById("myModal").style.justifyContent = "center";
       document.getElementById("myModal").style.alignItems = "center";
@@ -105,6 +113,7 @@ function checkWin() {
     }
   }
   if (isBoardFull()) {
+    gameOver.play();
     document.getElementById("winnerText").innerText = "It's a draw!";
     document.getElementById("myModal").style.display = "flex";
     document.getElementById("myModal").style.justifyContent = "center";
@@ -134,6 +143,7 @@ function resetGame() {
   document.getElementById("reviewButtons").style.display = "none";
   gameMoves = [];
   undoneMoves = [];
+  clickAudio.play();
 }
 
 function restartGame() {
@@ -146,6 +156,7 @@ function reviewGame() {
   document.getElementById("myModal").style.display = "none";
   document.getElementById("reviewButtons").style.display = "block";
   document.getElementById("previousMoveButton").disabled = false;
+  clickAudio.play();
 }
 
 function previousMove() {
@@ -160,6 +171,7 @@ function previousMove() {
     ].innerText = "";
     undoneMoves.push(lastMove);
     document.getElementById("nextMoveButton").disabled = false;
+    clickAudio.play();
   }
   if (gameMoves.length <= 0) {
     document.getElementById("previousMoveButton").disabled = true;
@@ -178,6 +190,7 @@ function nextMove() {
     ].innerText = currentPlayer;
     gameMoves.push(nextMove);
     document.getElementById("previousMoveButton").disabled = false;
+    clickAudio.play();
   }
   if (undoneMoves.length <= 0) {
     document.getElementById("nextMoveButton").disabled = true;

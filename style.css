@@ -8,13 +8,21 @@
     src: url('./font/SnappyDresserRegular-L35nG.ttf');
 }
 
+:root {
+    --background: #bde0fe;
+    --button: #F5F3C1;
+    --board: #ffafcc;
+    --font: #0E8388;
+    --font2: #393E46;
+}
+
 html,
 body {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
-    background-color: #BBDED6;
+    background-color: var(--background);
 }
 
 #body-container {
@@ -34,8 +42,13 @@ body {
 }
 
 .start-buttons button {
-    background-color: #F5F3C1;
+    background-color: var(--button);
     cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.start-buttons button:hover {
+    transform: scale(1.1);
 }
 
 #game-container {
@@ -50,7 +63,7 @@ body {
 .game-title {
     font-size: 5rem;
     font-family: 'title-font', sans-serif;
-    color: #0E8388;
+    color: var(--font)
 }
 
 #tic-tac-toe-board {
@@ -75,9 +88,14 @@ body {
     cursor: pointer;
     margin: 5px;
     border-radius: 20px;
-    background-color: #FFB6B9;
+    background-color: var(--board);
     font-family: 'title-font';
-    color: #0E8388;
+    color: var(--font);
+    transition: transform 0.2s ease-in-out;
+}
+
+.cell:hover {
+    transform: scale(1.1);
 }
 
 #buttons {
@@ -95,13 +113,18 @@ body {
     justify-content: center;
     width: 5em;
     height: 1.5em;
-    background-color: #F5F3C1;
+    background-color: var(--button);
     border: none;
     border-radius: 5px;
     font-size: 20px;
-    color: #393E46;
+    color: var(--font2);
     padding-top: 5px;
     font-family: 'button', sans-serif;
+    transition: transform 0.2s ease-in-out;
+}
+
+#resetButton:hover {
+    transform: scale(1.1);
 }
 
 #reviewButtons {
@@ -115,9 +138,10 @@ button {
     border: none;
     border-radius: 5px;
     font-size: 20px;
-    color: #393E46;
+    color: var(--font2);
     padding-top: 5px;
     font-family: 'button', sans-serif;
+    cursor: pointer;
 }
 
 .modal {
@@ -146,7 +170,7 @@ button {
     width: 400px;
     text-align: center;
     font-family: 'button', sans-serif;
-    color: #0E8388;
+    color: var(--font);
 }
 
 .modal-buttons {
@@ -161,7 +185,12 @@ button {
     margin-right: 10px;
     width: 8em;
     height: 1.5em;
-    background-color: #F5F3C1;
+    background-color: var(--button);
+    transition: transform 0.2s ease-in-out;
+}
+
+.modal-buttons button:hover {
+    transform: scale(1.1);
 }
 
 .reviewMoveButtons {
@@ -179,4 +208,9 @@ button {
     max-width: 50px;
     max-height: 50px;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+#option img:hover {
+    transform: scale(1.1);
 }
