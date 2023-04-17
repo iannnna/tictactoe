@@ -44,11 +44,21 @@ body {
 .start-buttons button {
     background-color: var(--button);
     cursor: pointer;
-    transition: transform 0.2s ease-in-out;
+    animation: zoomInOut 1.6s infinite alternate;
 }
 
-.start-buttons button:hover {
-    transform: scale(1.1);
+@keyframes zoomInOut {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 #game-container {
